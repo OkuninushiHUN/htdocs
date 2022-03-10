@@ -6,12 +6,21 @@ const VIEW_PATH = __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.'resource
 require_once APP_PATH.'exception/ViewNotFoundException.php';
 require_once APP_PATH.'exception/RouteNotFoundException.php';
 require_once APP_PATH.'Router.php';
-require_once APP_PATH.'Controller/LibaryController.php';
+require_once APP_PATH . 'Controller/LibraryController.php';
 require_once APP_PATH.'view.php';
+require_once APP_PATH.'DB.php';
+require_once APP_PATH.'models/book.php';
+
+
 use App\Router;
 use App\Controller\LibraryController;
+$db= APP\DB::getInstance();
+
 
 $router = new Router();
+$router->get('/dbtest', function (){
+    var_dump(app\DB::getInstance()->query("SELECT * FROM books")->fetchAll());
+});
 
 
 $router

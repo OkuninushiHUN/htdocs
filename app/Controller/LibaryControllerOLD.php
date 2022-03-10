@@ -26,7 +26,7 @@ class LibraryController
         $newBook = [
             'title' => $_POST['title'],
             'author' => $_POST['author'],
-            'public_year' => $_POST['year'],
+            'published_at' => $_POST['year'],
             'language' => $_POST['language'],
             'isbn' => $_POST['isbn'],
         ];

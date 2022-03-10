@@ -21,7 +21,7 @@
     <tr>
     <td><?= $book['title']?></td>
     <td><?= $book['author']?></td>
-    <td><?= $book['public_year']?></td>
+    <td><?= $book['published_at']?></td>
     <td><?= $book['language']?></td>
     <td><?= $book['isbn']?></td>
 
