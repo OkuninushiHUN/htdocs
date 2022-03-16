@@ -14,6 +14,8 @@ require_once APP_PATH.'models/book.php';
 
 use App\Router;
 use App\Controller\LibraryController;
+use App\View;
+session_start();
 $db= APP\DB::getInstance();
 
 
@@ -22,6 +24,29 @@ $router->get('/dbtest', function (){
     var_dump(app\DB::getInstance()->query("SELECT * FROM books")->fetchAll());
 });
 
+$router->get('/set/cookie', function (){
+    setcookie('COOKIE_NAME', 'COOKIE_value', time()+86400, '/');
+});
+
+$router->get('/delete/cookie', function (){
+    setcookie('COOKIE_NAME', '', time()-3600, '/');
+});
+
+$router->get('/show/cookie', function (){
+    var_dump($_COOKIE);
+});
+$router->get('/show/session', function (){
+   var_dump($_SESSION);
+});
+
+$router->get('/set/session', function (){
+    $_SESSION['sajt']= "trapista";
+    $_SESSION['innivalo']= "forrocsoki";
+});
+
+$router->get('/delete/session', function () {
+    unset($_SESSION['sajt']);
+});
 
 $router
     ->get('/', [\App\Controller\LibraryController::class, 'index'])

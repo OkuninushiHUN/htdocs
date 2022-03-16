@@ -3,7 +3,13 @@
 ?>
 <hr>
 <a href="/create">Létrehozás</a>
-<hr>
+<div style="border: solid #ff3a3a 1px">
+    <?= $message ?? "" ?>
+</div>
+
+
+
+    <hr>
 <table>
     <thead>
     <tr>
@@ -24,6 +30,9 @@
     <td><?= $book['published_at']?></td>
     <td><?= $book['language']?></td>
     <td><?= $book['isbn']?></td>
+        <td>
+            <a href="/details?id=<?= $book["id"] ?>">Részletek</a>
+        </td>
 
     </tr>
     <?php endforeach;?>
